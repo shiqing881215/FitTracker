@@ -1,6 +1,35 @@
+<div class="header">
+  <img src="../assets/FitTrackerLogo.png" alt="FitTrackerLogo">
+  <div class="container">
+      <h1>Track your exercise anytime anywhere</h1>      
+  </div>
+</div>
+
 <div class="row">
   <div class="col-md-2"></div>
   <div class="col-md-8">
+    <form class="newRecordForm">
+      <h5 class="label"> New Excercise </h5>
+      <div class="formRow">
+        <div class="formCell">
+          <input type="text" name="excercise" id="excercise" [(ngModel)]="newTodo.excercise" placeholder="Excercise" class="form-control">
+        </div>
+        <div class="formCell">
+          <input name="category" id="category" [(ngModel)]="newTodo.category" placeholder="Category" class="form-control">
+        </div>
+      </div>
+      <div class="formRow">  
+        <div class="formCell">
+          <input name="duration" id="duration" [(ngModel)]="newTodo.duration" placeholder="Duration" class="form-control">
+        </div>
+        <div class="formCell">
+          <input name="calory" id="calory" [(ngModel)]="newTodo.calory" placeholder="Calory" class="form-control">
+        </div>
+      </div>
+      <div class="formBtn">
+          <button type="submit" class="btn btn-primary" (click)="create()">Add</button>
+      </div>
+    </form>
 
     <div class="todos" *ngIf="todosList">
       <table class="table">
@@ -29,23 +58,24 @@
             </ng-container>
 
             <ng-template #editTD>
-                <td><input type="text" name="title" id="title" (keypress)="submitTodo($event, todo)" [(ngModel)]="todo.title" placeholder="Title" class="form-control"></td>
-                <td><input type="text" name="description" id="description" (keypress)="submitTodo($event, todo)" [(ngModel)]="todo.description" placeholder="Description"
+                <td><input type="text" name="excercise" id="excercise" (keypress)="submitTodo($event, todo)" [(ngModel)]="todo.excercise" placeholder="Excercise" class="form-control"></td>
+                <td><input type="text" name="category" id="category" (keypress)="submitTodo($event, todo)" [(ngModel)]="todo.category" placeholder="Category"
+                    class="form-control"></td>
+                <td><input type="text" name="duration" id="duration" (keypress)="submitTodo($event, todo)" [(ngModel)]="todo.duration" placeholder="Duration"
+                    class="form-control"></td>
+                <td><input type="text" name="calory" id="calory" (keypress)="submitTodo($event, todo)" [(ngModel)]="todo.calory" placeholder="Calory"
                     class="form-control"></td>
                 <td>{{todo.date | date}}</td>
-                <td>
-                  <input type="text" name="status" id="status" (keypress)="submitTodo($event, todo)" [(ngModel)]="todo.status" placeholder="Status" class="form-control">
-                </td>
             </ng-template>
 
-            <td class="o">
-              <button class="btn btn-success" (click)="doneTodo(todo)">
+            <td class="options">
+              <button class="btn btn-success optionBtn" (click)="doneTodo(todo)">
                 <i  class="fa fa-check"></i>
               </button>
-              <button class="btn btn-primary" (click)="editTodo(todo)">
+              <button class="btn btn-primary optionBtn" (click)="editTodo(todo)">
                   <i  class="fa fa-pencil"></i>
                 </button>
-              <button class="btn btn-danger" (click)="deleteTodo(todo)">
+              <button class="btn btn-danger optionBtn" (click)="deleteTodo(todo)">
                   <i  class="fa fa-trash"></i>
                 </button>
             </td>
@@ -56,26 +86,7 @@
     </div>
 
 
-    <form>
-      <div class="form-row">
-
-        <div class="col-md-5">
-          <input type="text" name="excercise" id="excercise" [(ngModel)]="newTodo.excercise" placeholder="Excercise" class="form-control">
-        </div>
-        <div class="col-md-5">
-          <input name="category" id="category" [(ngModel)]="newTodo.category" placeholder="Category" class="form-control">
-        </div>
-        <div class="col-md-5">
-          <input name="duration" id="duration" [(ngModel)]="newTodo.duration" placeholder="Duration" class="form-control">
-        </div>
-        <div class="col-md-5">
-          <input name="calory" id="calory" [(ngModel)]="newTodo.calory" placeholder="Calory" class="form-control">
-        </div>
-        <div class="col-md-2">
-          <button type="submit" class="btn btn-primary" (click)="create()">Add</button>
-        </div>
-      </div>
-    </form>
+    
   </div>
   <div class="col-md-2">
     

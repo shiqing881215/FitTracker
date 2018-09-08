@@ -1,0 +1,40 @@
+.header {
+    display : flex;
+    border-bottom : solid; 
+    border-bottom-size : 0.5px; 
+    border-bottom-color : lightgrey;
+}
+
+img {
+    height : 140px;
+    width : 235px;
+}
+
+.header h1 {
+    margin-top : 2rem;
+}
+
+.newRecordForm .label {
+    margin-top : 1rem;
+}
+
+.formRow {
+    display : flex;
+    margin-bottom : 0.5rem;
+}
+
+.formCell {
+    margin-right : 0.5rem;
+}
+
+.formBtn {
+    margin-bottom : 2rem;
+}
+
+.options {
+    display : flex;
+}
+
+.options .optionBtn {
+    margin-right : 0.5rem;
+}
