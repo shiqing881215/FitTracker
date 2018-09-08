@@ -66,7 +66,7 @@ export class AppComponent implements OnInit {
 
   // Update todo status to done
   doneTodo(todo:FitTracker){
-    // todo.status = 'Done'
+    debugger;
     this.fittrackerService.editTodo(todo).subscribe(res => {
       console.log('Update Succesful')
     }, err => {
