@@ -64,10 +64,13 @@
             </ng-template>
 
             <td class="options">
-              <button class="btn btn-success optionBtn">
+              <button class="btn btn-info optionBtn">
                 <a routerLink="/detail/{{todo._id}}">
-                  <i  class="fa fa-heart"></i>
+                  <i  class="fa fa-eye"></i>
                 </a>
+              </button>
+              <button class="btn btn-success optionBtn">
+                  <i  class="fa fa-heart"></i>
               </button>
               <button class="btn btn-primary optionBtn" (click)="editTodo(todo)">
                   <i  class="fa fa-pencil"></i>

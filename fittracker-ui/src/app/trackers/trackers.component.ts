@@ -34,7 +34,6 @@ export class TrackersComponent implements OnInit {
       })
   }
 
-
   //This method will get called on Create button event
   create() {
     this.fittrackerService.createTodo(this.newTodo)
@@ -62,16 +61,6 @@ export class TrackersComponent implements OnInit {
         })
       }
     }
-  }
-
-  // Update todo status to done
-  doneTodo(todo:FitTracker){
-    this.fittrackerService.editTodo(todo).subscribe(res => {
-      console.log('Update Succesful')
-    }, err => {
-      this.editTodo(todo)
-      console.error('Update Unsuccesful')
-    })
   }
 
   // When in inline-edit mode, if pressing enter key, try to save
