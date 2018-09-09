@@ -15,10 +15,15 @@ exports.getTodos = async function(req, res, next){
     // Check the existence of the query parameters, If the exists doesn't exists assign a default value
     var page = req.query.page ? req.query.page : 1
     var limit = req.query.limit ? req.query.limit : 100; 
+    var todoId = req.query.id;
 
     try{  
-        // No query param, return everything
-        var todos = await FitTrackerService.getTodos({}, page, limit)
+        if (todoId != undefined) {
+            var todos = await FitTrackerService.getTodos({"id":todoId}, page, limit)
+        } else {
+            // No query param, return everything
+            var todos = await FitTrackerService.getTodos({}, page, limit)
+        }
         
         // Return the todos list with the appropriate HTTP Status Code and Message.      
         return res.status(200).json({status: 200, data: todos, message: "Succesfully Todos Recieved"});    

@@ -19,15 +19,21 @@ exports.getTodos = async function(query, page, limit){
         page,
         limit
     }
+
+    var id = query["id"];
     
     // Try Catch the awaited promise to handle the error     
     try {
-        var todos = await FitTracker.paginate(query, options)
+        if (id) {
+            var todos = await FitTracker.findById(id);
+        } else {
+            var todos = await FitTracker.paginate(query, options);
+        }
         // Return the todod list that was retured by the mongoose promise
         return todos;
     } catch (e) {
         // return a Error message describing the reason 
-        throw Error('Error while Paginating Todos')
+        throw Error('Error while Paginating Todos' + e);
     }
 }
 

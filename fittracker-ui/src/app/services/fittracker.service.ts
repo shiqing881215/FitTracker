@@ -38,6 +38,16 @@ export class FitTrackerService {
     }))
   }
 
+  // Get a single todo item
+  getTodo(id:string): Observable<FitTracker>{
+  debugger;
+    return this.http.get(this.todoUrl + "?id=" + id)
+    .pipe(map(res  => {
+      //Maps the response object sent from the server        
+      return res["data"] as FitTracker;
+    }))
+  }
+
   //Update todo, takes a FitTracker Object as parameter
   editTodo(todo:FitTracker){
     let editUrl = `${this.todoUrl}`

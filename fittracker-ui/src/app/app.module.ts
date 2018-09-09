@@ -5,18 +5,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { TrackerDetailComponent } from './tracker-detail/tracker-detail.component'
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AppRoutingModule } from './app-routing.module';
+import { TrackersComponent } from './trackers/trackers.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TrackerDetailComponent,
+    TrackersComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AppRoutingModule
   ],
   providers: [
     FitTrackerService
