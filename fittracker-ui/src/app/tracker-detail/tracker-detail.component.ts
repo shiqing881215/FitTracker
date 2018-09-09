@@ -24,7 +24,6 @@ export class TrackerDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    debugger;
     this.getTracker();
   }
 
